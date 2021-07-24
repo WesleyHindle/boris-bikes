@@ -13,6 +13,12 @@ describe DockingStation do
     expect(subject.release_bike).to eq subject.bike
   end 
 
+  it 'expects an error to be raised when the dock already has a bike' do 
+    
+    subject.dock(Bike.new)
+    expect { subject.dock(Bike.new) }.to raise_error 'Dock full'
+  end 
+
   it 'docks something' do 
     bike = Bike.new
     #We want to return the bike we dock
