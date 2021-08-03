@@ -7,7 +7,7 @@ attr_reader :bike
   end 
 
   def release_bike
-    fail 'No bikes available' unless @bike
+    fail 'No bikes available' if @bike.empty?
     return @bike
   end
   
