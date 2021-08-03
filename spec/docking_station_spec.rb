@@ -13,16 +13,11 @@ describe DockingStation do
     expect(subject.release_bike).to eq subject.bike
   end 
 
-  it 'expects an error to be raised when the dock already has a bike' do 
-    
-    subject.dock(Bike.new)
-    expect { subject.dock(Bike.new) }.to raise_error 'Dock full'
-  end 
 
   describe '#dock' do
     it 'raises an error when the dock is full' do 
       20.times {subject.dock Bike.new}
-      expect { subject.dock Bike.new}.to raise_error 'Docking station full'
+      expect {subject.dock Bike.new}.to raise_error 'Docking station full'
     end 
   end 
 
